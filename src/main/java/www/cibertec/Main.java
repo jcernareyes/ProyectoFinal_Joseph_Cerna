@@ -4,24 +4,13 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static double descuento(double total) {
-        if (total >= 200) {
-            return total * 0.15;
-        } else if (total >= 100) {
-            return total * 0.10;
-        } else {
-            return 0;
-        }
-    }
-
-    public static void main(String[] args) {
+    public static void main() {
 
         Scanner sc = new Scanner(System.in);
 
         String cliente;
         int opcion, cantidad;
-        double precio = 0;
-        double total, desc;
+        double precio, total, desc;
         boolean tieneDescuento;
 
         System.out.print("Nombre: ");
@@ -38,12 +27,15 @@ public class Main {
             case 1:
                 precio = 50;
                 break;
+
             case 2:
                 precio = 100;
                 break;
+
             case 3:
                 precio = 200;
                 break;
+
             default:
                 System.out.println("Opcion incorrecta");
                 sc.close();
@@ -54,7 +46,14 @@ public class Main {
         cantidad = sc.nextInt();
 
         total = precio * cantidad;
-        desc = descuento(total);
+
+        if (total >= 200) {
+            desc = total * 0.15;
+        } else if (total >= 100) {
+            desc = total * 0.10;
+        } else {
+            desc = 0;
+        }
 
         tieneDescuento = desc > 0;
         total = total - desc;
@@ -69,5 +68,5 @@ public class Main {
 
         sc.close();
     }
-   }
+}
 
